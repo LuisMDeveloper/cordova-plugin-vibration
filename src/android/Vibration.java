@@ -46,7 +46,6 @@ public class Vibration extends CordovaPlugin {
 
     private Connection printerConnection;
     private ZebraPrinter printer;
-    private Button testButton;
 
     //Data
     private final String numeroDeAtencionAlCliente = "01 (452) 523 4135";
@@ -230,7 +229,7 @@ public class Vibration extends CordovaPlugin {
             }
         } catch (ConnectionException e) {
         } finally {
-            enableTestButton(true);
+            //enableTestButton(true);
         }
     }
 
@@ -244,10 +243,10 @@ public class Vibration extends CordovaPlugin {
     }
 
     private void sendTestLabel() {
-        final Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.logo_lfsj);
+        //final Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.logo_lfsj);
         try {
             printerConnection.write("! U1 JOURNAL\r\n! U1 SETFF 50 2\r\n".getBytes());
-            printer.printImage(new ZebraImageAndroid(myBitmap), 30+(550/4), 0, (550/2), (412/2), false);
+            //printer.printImage(new ZebraImageAndroid(myBitmap), 30+(550/4), 0, (550/2), (412/2), false);
         } catch (ConnectionException e) {
         }
         try {
