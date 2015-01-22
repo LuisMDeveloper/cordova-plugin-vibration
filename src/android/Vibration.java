@@ -46,7 +46,7 @@ public class Vibration extends CordovaPlugin {
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("vibrate")) {
-            this.vibrate(args.getLong(0));
+            //this.vibrate(args.getLong(0));
         }
         else if (action.equals("vibrateWithPattern")) {
             JSONArray pattern = args.getJSONArray(0);
