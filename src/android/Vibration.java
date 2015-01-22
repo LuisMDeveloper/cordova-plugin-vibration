@@ -26,7 +26,6 @@ import org.json.JSONException;
 import android.content.Context;
 import android.os.Vibrator;
 
-import org.apache.cordova.vibration.Sleeper;
 import com.zebra.sdk.comm.BluetoothConnection;
 import com.zebra.sdk.comm.Connection;
 import com.zebra.sdk.comm.ConnectionException;
@@ -200,7 +199,7 @@ public class Vibration extends CordovaPlugin {
         } catch (ConnectionException e) {
             e.printStackTrace();
             System.out.println("Comm Error! Disconnecting");
-            Sleeper.sleep(1000);
+            Vibration.sleep(1000);
             disconnect();
         }
 
@@ -212,11 +211,11 @@ public class Vibration extends CordovaPlugin {
                 PrinterLanguage pl = printer.getPrinterControlLanguage();
             } catch (ConnectionException e) {
                 printer = null;
-                Sleeper.sleep(1000);
+                Vibration.sleep(1000);
                 disconnect();
             } catch (ZebraPrinterLanguageUnknownException e) {
                 printer = null;
-                Sleeper.sleep(1000);
+                Vibration.sleep(1000);
                 disconnect();
             }
         }
@@ -254,10 +253,10 @@ public class Vibration extends CordovaPlugin {
         try {
             byte[] configLabel = getConfigLabel(p);
             printerConnection.write(configLabel);
-            Sleeper.sleep(1500);
+            Vibration.sleep(1500);
             if (printerConnection instanceof BluetoothConnection) {
                 String friendlyName = ((BluetoothConnection) printerConnection).getFriendlyName();
-                Sleeper.sleep(500);
+                Vibration.sleep(500);
             }
         } catch (ConnectionException e) {
         } finally {
@@ -333,5 +332,13 @@ public class Vibration extends CordovaPlugin {
             configLabel = cpclConfigLabel.getBytes();
         }
         return configLabel;
+    }
+
+    public static void sleep(int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
