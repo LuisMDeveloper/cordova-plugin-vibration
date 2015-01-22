@@ -25,6 +25,17 @@ import org.json.JSONException;
 import android.content.Context;
 import android.os.Vibrator;
 
+import com.zebra.sdk.comm.BluetoothConnection;
+import com.zebra.sdk.comm.Connection;
+import com.zebra.sdk.comm.ConnectionException;
+import com.zebra.sdk.graphics.internal.ZebraImageAndroid;
+import com.zebra.sdk.printer.PrinterLanguage;
+import com.zebra.sdk.printer.ZebraPrinter;
+import com.zebra.sdk.printer.ZebraPrinterFactory;
+import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 /**
  * This class provides access to vibration on the device.
  */
