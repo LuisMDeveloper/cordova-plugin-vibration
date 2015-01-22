@@ -64,7 +64,7 @@ public class Vibration extends CordovaPlugin {
         }
         else if (action.equals("printTicket")) {
             System.out.println("printTicket Test");
-            this.vibrate(1)
+            this.vibrate(1);
         }
         else {
             return false;
