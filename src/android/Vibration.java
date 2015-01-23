@@ -116,8 +116,7 @@ public class Vibration extends CordovaPlugin {
             this.cancelVibration();
         }
         else if (action.equals("printTicket")) {
-
-            this.vibrate(1000);
+            this.direction = args.getString(0);
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
                     System.out.println("printTicket Test");
