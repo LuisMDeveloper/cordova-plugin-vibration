@@ -117,7 +117,13 @@ public class Vibration extends CordovaPlugin {
         }
         else if (action.equals("printTicket")) {
             System.out.println(args.getString(0));
-            //this.direction = args.getString(0);
+            JSONObject client = new JSONObject(args.getString(0));
+            this.direction = client.getString("direction");
+            this.colonia = client.getString("colonia");
+            this.ciudad = client.getString("ciudad");
+            this.id = client.getString("id");
+            this.cliente = client.getString("cliente");
+            this.atiende = client.getString("atiende");
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
                     System.out.println("printTicket Test Run");
