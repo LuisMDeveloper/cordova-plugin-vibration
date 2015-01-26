@@ -27,7 +27,7 @@ import android.content.Context;
 import android.os.Vibrator;
 
 import org.json.JSONObject;
-
+import java.util.Calendar;
 import com.zebra.sdk.comm.BluetoothConnection;
 import com.zebra.sdk.comm.Connection;
 import com.zebra.sdk.comm.ConnectionException;
@@ -118,7 +118,8 @@ public class Vibration extends CordovaPlugin {
             this.cancelVibration();
         }
         else if (action.equals("printTicket")) {
-            System.out.println(args.getString(0));
+            Calendar today = Calendar.getInstance();
+            System.out.println(today);
             JSONObject client = new JSONObject(args.getString(0));
             this.direction = client.getString("direction");
             this.colonia = client.getString("colonia");
