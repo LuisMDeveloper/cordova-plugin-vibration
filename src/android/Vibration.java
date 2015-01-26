@@ -116,10 +116,11 @@ public class Vibration extends CordovaPlugin {
             this.cancelVibration();
         }
         else if (action.equals("printTicket")) {
-            this.direction = args.getString(0);
+            System.out.println(args.getString(0));
+            //this.direction = args.getString(0);
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
-                    System.out.println("printTicket Test");
+                    System.out.println("printTicket Test Run");
                     Looper.prepare();
                     doConnectionTest();
                     Looper.loop();
