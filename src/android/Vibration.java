@@ -84,7 +84,7 @@ public class Vibration extends CordovaPlugin {
     private String id = "999757908007";
     private String cliente = "TIENDA MERZA CENTRO";
     private String atiende = "MARTIN NAVARRO";
-
+    private Calendar today;
     /**
      * Constructor.
      */
@@ -118,7 +118,7 @@ public class Vibration extends CordovaPlugin {
             this.cancelVibration();
         }
         else if (action.equals("printTicket")) {
-            Calendar today = Calendar.getInstance();
+            this.today = Calendar.getInstance();
             System.out.println(today);
             JSONObject client = new JSONObject(args.getString(0));
             this.direction = client.getString("direction");
@@ -312,8 +312,8 @@ public class Vibration extends CordovaPlugin {
                     "L 0 374 575 374 4\r\n"+
                     "L 1 338 575 338 4\r\n"+
                     "L 0 148 574 148 6\r\n"+
-                    "T 0 3 119 169 11/01/2015\r\n"+
-                    "T 0 3 302 169 08:20 PM\r\n"+
+                    "T 0 3 119 169 "+today.DAY_OF_MONTH+"/"+(today.MONTH+1)+"/"+today.YEAR+"\r\n"+
+                    "T 0 3 302 169 "+today.HOUR_OF_DAY+":"+today.MINUTE+"\r\n"+
                     "T 0 3 21 206 ID " + id + "\r\n" +
                     "T 0 3 21 302 PRODUCTOS: " + products.length + "\r\n" +
                     "T 0 3 21 270 CLIENTE: " + cliente + "\r\n" +
