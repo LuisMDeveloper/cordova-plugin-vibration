@@ -26,6 +26,8 @@ import org.json.JSONException;
 import android.content.Context;
 import android.os.Vibrator;
 
+import org.json.JSONObject;
+
 import com.zebra.sdk.comm.BluetoothConnection;
 import com.zebra.sdk.comm.Connection;
 import com.zebra.sdk.comm.ConnectionException;
