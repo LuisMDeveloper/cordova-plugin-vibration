@@ -129,12 +129,12 @@ public class Vibration extends CordovaPlugin {
             this.atiende = client.getString("atiende");
             JSONArray productsArray = new JSONArray(args.getString(1));
             p = new String[productsArray.length()][4];
-            for (int i = 0; i < productsArray.length(); i++) {
+            for (int i = 0; i < p.length(); i++) {
                 JSONObject product = productsArray.getJSONObject(i);
-                p[p.length][0] = product.getString("art");
-                p[p.length][1] = product.getString("cant");
-                p[p.length][2] = product.getString("precio");
-                p[p.length][3] = product.getString("total");
+                p[i][0] = product.getString("art");
+                p[i][1] = product.getString("cant");
+                p[i][2] = product.getString("precio");
+                p[i][3] = product.getString("total");
             }
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
