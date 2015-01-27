@@ -86,7 +86,7 @@ public class Vibration extends CordovaPlugin {
     private String id = "999757908007";
     private String cliente = "TIENDA MERZA CENTRO";
     private String atiende = "MARTIN NAVARRO";
-    private Calendar today;
+    private String total = "$1,500";
     /**
      * Constructor.
      */
@@ -302,8 +302,8 @@ public class Vibration extends CordovaPlugin {
         PrinterLanguage printerLanguage = printer.getPrinterControlLanguage();
         //Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.logo_lfsj);
         //Bitmap myBitmap = BitmapFactory.decodeResource();
-        System.out.println("Test change");
-        int listLength = (40*products.length);
+        int totalLength = 50;
+        int listLength = (40*products.length) + totalLength;
         int footerLength = 285;
         byte[] configLabel = null;
         if (printerLanguage == PrinterLanguage.ZPL) {
@@ -336,19 +336,26 @@ public class Vibration extends CordovaPlugin {
                     "T 5 0 24 347 ART.\r\n";
 
             for (int i = 0; i < products.length; i++) {
-                cpclConfigLabel +=  "T 5 0 24 "+(397+(40*i))+" "+(i+1)+". "+(products[i][0]).toUpperCase()+"\r\n";
+                String s = products[i][0];
+                int limitString = 12;
+                if (s.length() > limitString) {
+                    s = s.substring(0, Math.min(s.length(), limitString));
+                    s += "...";
+                }
+                cpclConfigLabel +=  "T 5 0 24 "+(397+(40*i))+" "+(i+1)+". "+(s).toUpperCase()+"\r\n";
                 cpclConfigLabel +=  "T 5 0 297 "+(397+(40*i))+" "+(products[i][1]).toUpperCase()+"\r\n";
                 cpclConfigLabel +=  "T 5 0 391 "+(397+(40*i))+" "+(products[i][2]).toUpperCase()+"\r\n";
                 cpclConfigLabel +=  "T 5 0 494 "+(397+(40*i))+" "+(products[i][3]).toUpperCase()+"\r\n";
             }
 
+            cpclConfigLabel +=  "T 5 0 494 "+(440+listLength)+" "+(total).toUpperCase()+"\r\n"; //add total
             cpclConfigLabel += "L 0 "+(430+listLength)+" 574 "+(430+listLength)+" 6\r\n"+ // ultima linea
                     "T 5 1 140 "+(460+listLength)+" GRACIAS POR SU COMPRA\r\n"+
                     "T 0 2 40 "+(520+listLength)+" Es importante que conserve su ticket para hacer valida cualquier\r\n"+
                     "T 0 2 40 "+(555+listLength)+" aclaracian. En caso de NO recibir su ticket, quejas con el\r\n"+
                     "T 0 2 40 "+(590+listLength)+" servicio o anomalias con su compra, comuniquese al telefono\r\n"+
                     "T 0 2 40 "+(625+listLength)+" de Atencion al Cliente.\r\n"+
-                    "T 0 2 240 "+(660+listLength)+" www.comunicasc.com\r\n"+
+                    "T 0 2 230 "+(660+listLength)+" www.comunicasc.com\r\n"+
                     "PRINT\r\n";
             configLabel = cpclConfigLabel.getBytes();
         }
