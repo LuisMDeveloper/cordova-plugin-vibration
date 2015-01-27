@@ -348,7 +348,7 @@ public class Vibration extends CordovaPlugin {
                     "T 0 2 40 "+(555+listLength)+" aclaracian. En caso de NO recibir su ticket, quejas con el\r\n"+
                     "T 0 2 40 "+(590+listLength)+" servicio o anomalias con su compra, comuniquese al telefono\r\n"+
                     "T 0 2 40 "+(625+listLength)+" de Atencion al Cliente.\r\n"+
-                    "T 0 2 200 "+(660+listLength)+" www.comunicasc.com\r\n"+
+                    "T 0 2 240 "+(660+listLength)+" www.comunicasc.com\r\n"+
                     "PRINT\r\n";
             configLabel = cpclConfigLabel.getBytes();
         }
