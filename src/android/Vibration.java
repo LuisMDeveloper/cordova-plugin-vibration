@@ -304,7 +304,7 @@ public class Vibration extends CordovaPlugin {
         //Bitmap myBitmap = BitmapFactory.decodeResource();
         System.out.println("Test change");
         int listLength = (40*products.length);
-        int footerLength = 250;
+        int footerLength = 285;
         byte[] configLabel = null;
         if (printerLanguage == PrinterLanguage.ZPL) {
             configLabel = "^XA^FO17,16^GB379,371,8^FS^FT65,255^A0N,135,134^FDZPL^FS^XZ".getBytes();
@@ -348,6 +348,7 @@ public class Vibration extends CordovaPlugin {
                     "T 0 2 40 "+(555+listLength)+" aclaracian. En caso de NO recibir su ticket, quejas con el\r\n"+
                     "T 0 2 40 "+(590+listLength)+" servicio o anomalias con su compra, comuniquese al telefono\r\n"+
                     "T 0 2 40 "+(625+listLength)+" de Atencion al Cliente.\r\n"+
+                    "T 0 2 100 "+(660+listLength)+" www.comunicasc.com\r\n"+
                     "PRINT\r\n";
             configLabel = cpclConfigLabel.getBytes();
         }
