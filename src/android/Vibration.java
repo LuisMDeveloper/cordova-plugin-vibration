@@ -287,6 +287,9 @@ public class Vibration extends CordovaPlugin {
     *
     */
     private byte[] getConfigLabel(String[][] products) {
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy  hh:mm aaa");
+        String dateString = sdf.format(date);
         PrinterLanguage printerLanguage = printer.getPrinterControlLanguage();
         //Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.logo_lfsj);
         //Bitmap myBitmap = BitmapFactory.decodeResource();
@@ -312,8 +315,8 @@ public class Vibration extends CordovaPlugin {
                     "L 0 374 575 374 4\r\n"+
                     "L 1 338 575 338 4\r\n"+
                     "L 0 148 574 148 6\r\n"+
-                    "T 0 3 119 169 "+today.DAY_OF_MONTH+"/"+(today.MONTH+1)+"/"+today.YEAR+"\r\n"+
-                    "T 0 3 302 169 "+today.HOUR_OF_DAY+":"+today.MINUTE+"\r\n"+
+                    "T 0 3 119 169 "+dateString+"\r\n"+
+                    //"T 0 3 302 169 "+today.HOUR_OF_DAY+":"+today.MINUTE+"\r\n"+
                     "T 0 3 21 206 ID " + id + "\r\n" +
                     "T 0 3 21 302 PRODUCTOS: " + products.length + "\r\n" +
                     "T 0 3 21 270 CLIENTE: " + cliente + "\r\n" +
