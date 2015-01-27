@@ -25,6 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import android.content.Context;
 import android.os.Vibrator;
+
+import java.lang.String;
 import java.text.SimpleDateFormat;
 import org.json.JSONObject;
 import java.util.Calendar;
@@ -50,8 +52,9 @@ public class Vibration extends CordovaPlugin {
     private ZebraPrinter printer;
 
     //Data
+    HashMap<String, String> products = new HashMap<String,String>();
     private final String numeroDeAtencionAlCliente = "01 (452) 523 4135";
-    String[][] p = {
+    String[][] p; /* = {
             {
                     "Producto 1",
                     "3 KG",
@@ -76,7 +79,7 @@ public class Vibration extends CordovaPlugin {
                     "$100.00",
                     "$200.00"
             }
-    };
+    };*/
     private String direction = "Paraguay #1736";
     private String colonia = "Los Angeles.";
     private String ciudad = "Uruapan, Mich.";
@@ -118,8 +121,6 @@ public class Vibration extends CordovaPlugin {
             this.cancelVibration();
         }
         else if (action.equals("printTicket")) {
-            this.today = Calendar.getInstance();
-            System.out.println(today);
             JSONObject client = new JSONObject(args.getString(0));
             this.direction = client.getString("direction");
             this.colonia = client.getString("colonia");
@@ -127,6 +128,15 @@ public class Vibration extends CordovaPlugin {
             this.id = client.getString("id");
             this.cliente = client.getString("cliente");
             this.atiende = client.getString("atiende");
+            JSONArray productsArray = new JSONArray(args.getString(1));
+            p = new String[productsArray.length()][4];
+            for (int i = 0; i < productsArray.length(); i++) {
+                JSONObject product = productsArray.getJSONObject(i);
+                p[p.length][0] = product.getString("art");
+                p[p.length][1] = product.getString("cant");
+                p[p.length][2] = product.getString("precio");
+                p[p.length][3] = product.getString("total");
+            }
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
                     System.out.println("printTicket Test Run");
