@@ -25,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import android.content.Context;
 import android.os.Vibrator;
-
+import java.text.SimpleDateFormat;
 import org.json.JSONObject;
 import java.util.Calendar;
 import com.zebra.sdk.comm.BluetoothConnection;
