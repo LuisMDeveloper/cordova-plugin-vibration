@@ -127,6 +127,7 @@ public class Vibration extends CordovaPlugin {
             this.id = client.getString("id");
             this.cliente = client.getString("cliente");
             this.atiende = client.getString("atiende");
+            this.total = client.getString("total");
             JSONArray productsArray = new JSONArray(args.getString(1));
             p = new String[productsArray.length()][4];
             for (int i = 0; i < p.length; i++) {
