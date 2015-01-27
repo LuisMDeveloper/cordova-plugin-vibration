@@ -349,7 +349,7 @@ public class Vibration extends CordovaPlugin {
                 cpclConfigLabel +=  "T 5 0 494 "+(397+(40*i))+" "+(products[i][3]).toUpperCase()+"\r\n";
             }
 
-            cpclConfigLabel +=  "T 5 0 460 "+(380+listLength)+" "+(total).toUpperCase()+"\r\n"; //add total
+            cpclConfigLabel +=  "T 5 0 470 "+(380+listLength)+" "+(total).toUpperCase()+"\r\n"; //add total
             cpclConfigLabel += "L 0 "+(430+listLength)+" 574 "+(430+listLength)+" 6\r\n"+ // ultima linea
                     "T 5 1 140 "+(460+listLength)+" GRACIAS POR SU COMPRA\r\n"+
                     "T 0 2 40 "+(520+listLength)+" Es importante que conserve su ticket para hacer valida cualquier\r\n"+
