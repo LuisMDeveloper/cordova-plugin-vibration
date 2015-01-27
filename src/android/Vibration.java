@@ -52,7 +52,6 @@ public class Vibration extends CordovaPlugin {
     private ZebraPrinter printer;
 
     //Data
-    HashMap<String, String> products = new HashMap<String,String>();
     private final String numeroDeAtencionAlCliente = "01 (452) 523 4135";
     String[][] p; /* = {
             {
