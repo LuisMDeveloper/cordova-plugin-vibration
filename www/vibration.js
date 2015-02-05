@@ -53,7 +53,7 @@ module.exports = {
     vibrate: function(param) {
 
         /* Aligning with w3c spec */
-        
+
         //vibrate
         if ((typeof param == 'number') && param != 0)
             exec(null, null, "Vibration", "vibrate", [param]);
@@ -116,7 +116,7 @@ module.exports = {
     cancelVibration: function() {
         exec(null, null, "Vibration", "cancelVibration", []);
     },
-    printTicket: function (clientData, products) {
-        exec(null, null, "Vibration", "printTicket", [clientData, products]);
+    printTicket: function (clientData, products, mac) {
+        exec(null, null, "Vibration", "printTicket", [clientData, products, mac]);
     }
 };
