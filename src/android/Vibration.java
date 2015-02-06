@@ -46,39 +46,14 @@ import android.graphics.BitmapFactory;
  */
 public class Vibration extends CordovaPlugin {
 
-    String macAdd = "AC:3F:A4:1C:2A:90";
+    private String macAdd = "AC:3F:A4:1C:2A:90";
 
     private Connection printerConnection;
     private ZebraPrinter printer;
 
     //Data
     private final String numeroDeAtencionAlCliente = "01 (452) 523 4135";
-    String[][] p; /* = {
-            {
-                    "Producto 1",
-                    "3 KG",
-                    "$10.00",
-                    "$30.00"
-            },
-            {
-                    "Producto 2",
-                    "5 KG",
-                    "$10.00",
-                    "$50.00"
-            },
-            {
-                    "Producto 3",
-                    "2 KG",
-                    "$100.00",
-                    "$200.00"
-            },
-            {
-                    "Producto 4",
-                    "2 KG",
-                    "$100.00",
-                    "$200.00"
-            }
-    };*/
+    String[][] p;
     private String direction = "Paraguay #1736";
     private String colonia = "Los Angeles.";
     private String ciudad = "Uruapan, Mich.";
@@ -130,6 +105,7 @@ public class Vibration extends CordovaPlugin {
             this.total = client.getString("total");
             JSONArray productsArray = new JSONArray(args.getString(1));
             this.macAdd = args.getString(2);
+            System.out.println(this.macAdd);
             p = new String[productsArray.length()][4];
             for (int i = 0; i < p.length; i++) {
                 JSONObject product = productsArray.getJSONObject(i);
