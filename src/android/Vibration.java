@@ -104,8 +104,6 @@ public class Vibration extends CordovaPlugin {
             this.atiende = client.getString("atiende");
             this.total = client.getString("total");
             JSONArray productsArray = new JSONArray(args.getString(1));
-            this.macAdd = args.getString(2);
-            System.out.println(this.macAdd);
             p = new String[productsArray.length()][4];
             for (int i = 0; i < p.length; i++) {
                 JSONObject product = productsArray.getJSONObject(i);

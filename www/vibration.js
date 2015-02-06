@@ -116,7 +116,7 @@ module.exports = {
     cancelVibration: function() {
         exec(null, null, "Vibration", "cancelVibration", []);
     },
-    printTicket: function (clientData, products, mac) {
-        exec(null, null, "Vibration", "printTicket", [clientData, products, mac]);
+    printTicket: function (clientData, products) {
+        exec(null, null, "Vibration", "printTicket", [clientData, products]);
     }
 };
