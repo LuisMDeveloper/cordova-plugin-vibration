@@ -41,6 +41,8 @@ import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import java.io.*;
+import android.os.Environment;
 
 /**
  * This class provides access to vibration on the device.
