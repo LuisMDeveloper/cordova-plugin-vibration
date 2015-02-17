@@ -67,10 +67,34 @@ public class Vibration extends CordovaPlugin {
      * Constructor.
      */
     public Vibration() {
+        File config = getConfigFileStorageDir("configuration.txt");
+        if (config.exists()) {
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(config));
+                macAdd = reader.readLine();
+                System.out.println(macAdd);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    @Override
-    protected void pluginInitialize() {
+    public File getConfigFileStorageDir(String configFilename) {
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), configFilename);
+        if (!file.exists()) {
+            Log.e("cremeria_config", "Directory not created");
+        }
+        return file;
+    }
+
+    public boolean isExternalStorageWritable(){
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        }
+        return false;
     }
 
     /**
