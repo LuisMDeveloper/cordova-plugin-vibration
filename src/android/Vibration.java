@@ -43,6 +43,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import java.io.*;
 import android.os.Environment;
+import android.util.Log;
 
 /**
  * This class provides access to vibration on the device.
