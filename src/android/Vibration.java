@@ -26,6 +26,7 @@ import org.json.JSONException;
 import android.content.Context;
 import android.os.Vibrator;
 
+import java.lang.Override;
 import java.lang.String;
 import java.text.SimpleDateFormat;
 import org.json.JSONObject;
@@ -66,6 +67,10 @@ public class Vibration extends CordovaPlugin {
      * Constructor.
      */
     public Vibration() {
+    }
+
+    @Override
+    protected void pluginInitialize() {
     }
 
     /**
